@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Замовлення їжі в буфет</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="title">Виберіть роль:</h1>
+      <div class="role-buttons">
+        <button id="student-btn" class="role-btn">Я студент</button>
+        <button id="deliverer-btn" class="role-btn">Я доставщик</button>
+      </div>
+
+      <!-- Форма для студента -->
+      <div id="student-form" class="hidden form-container">
+        <h2 class="form-title">Зробити замовлення</h2>
+        <form id="order-form" class="order-form">
+          <label for="name" class="form-label">Ім'я:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-input"
+            required
+          />
+
+          <label for="item1" class="form-label">Страва 1:</label>
+          <select id="item1" name="item1" class="form-select">
+            <option value="">Не вибрано</option>
+            <option value="burger">
+              <i class="fas fa-hamburger"></i> Бургер
+            </option>
+            <option value="pizza">
+              <i class="fas fa-pizza-slice"></i> Піца
+            </option>
+            <option value="salad"><i class="fas fa-leaf"></i> Салат</option>
+          </select>
+
+          <label for="item2" class="form-label">Страва 2:</label>
+          <select id="item2" name="item2" class="form-select">
+            <option value="">Не вибрано</option>
+            <option value="burger">
+              <i class="fas fa-hamburger"></i> Бургер
+            </option>
+            <option value="pizza">
+              <i class="fas fa-pizza-slice"></i> Піца
+            </option>
+            <option value="salad"><i class="fas fa-leaf"></i> Салат</option>
+          </select>
+
+          <label for="item3" class="form-label">Страва 3:</label>
+          <select id="item3" name="item3" class="form-select">
+            <option value="">Не вибрано</option>
+            <option value="burger">
+              <i class="fas fa-hamburger"></i> Бургер
+            </option>
+            <option value="pizza">
+              <i class="fas fa-pizza-slice"></i> Піца
+            </option>
+            <option value="salad"><i class="fas fa-leaf"></i> Салат</option>
+          </select>
+
+          <p class="total-price">
+            Підсумкова сума: <span id="total-price">0</span> грн.
+          </p>
+          <button type="submit" class="submit-btn">Відправити замовлення</button>
+        </form>
+      </div>
+
+      <!-- Панель для доставщика -->
+      <div id="deliverer-panel" class="hidden form-container">
+        <h2 class="form-title">Список замовлень</h2>
+        <ul id="order-list" class="order-list"></ul>
+        <!-- Кнопка очистки бази даних -->
+        <button id="clear-db-btn" class="submit-btn">
+          Очистити базу даних
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
