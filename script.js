@@ -8,9 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalPrice = document.getElementById("total-price");
 
   const prices = {
-    burger: 100,
-    pizza: 150,
-    salad: 80,
+    burger: 63,
+    pizza: 63,
+    panini: 63,
+    sokovinka: 40,
+    nonstop: 40,
+    zapekanka: 56,
+    slayka: 36,
+    cola: 40,
   };
 
   // Показать форму студента
