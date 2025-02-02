@@ -114,3 +114,21 @@ body {
   font-size: 1rem;
   color: #333;
 }
+
+.order-list li {
+  padding: 10px;
+  background: #e9ecef;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.order-list strong {
+  color: #007bff;
+}
+
+.order-list em {
+  color: #28a745;
+  font-weight: bold;
+}

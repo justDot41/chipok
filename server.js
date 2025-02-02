@@ -6,44 +6,68 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const DB_PATH = path.join(__dirname, "db.json");
 
-// Промежуточное ПО для обработки JSON
+// Проміжне ПЗ для обробки JSON
 app.use(express.json());
 
-// Чтение базы данных
+// Читання бази даних
 function readDB() {
   return JSON.parse(fs.readFileSync(DB_PATH, "utf-8"));
 }
 
-// Запись в базу данных
+// Запис у базу даних
 function writeDB(data) {
   fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2));
 }
 
-// Инициализация базы данных
+// Ініціалізація бази даних
 if (!fs.existsSync(DB_PATH)) {
   writeDB([]);
 }
 
-// Маршрут для получения заказов
+// Маршрут для отримання замовлень
 app.get("/orders", (req, res) => {
   const orders = readDB();
   res.json(orders);
 });
 
-// Маршрут для добавления заказа
+// Маршрут для додавання замовлення
 app.post("/orders", (req, res) => {
   const { name, items } = req.body;
 
-  // Фильтруем пустые значения
+  // Фільтруємо порожні значення
   const filteredItems = items.filter((item) => item);
 
-  // Проверяем, что есть хотя бы одно блюдо
+  // Перевіряємо, що є хоча б одна страва
   if (filteredItems.length === 0) {
-    return res.status(400).send("Заказ должен содержать хотя бы одно блюдо.");
+    return res.status(400).send("Замовлення повинно містити хоча б одну страву.");
   }
 
+  // Розраховуємо загальну суму замовлення
+  const prices = {
+    burger: 63,
+    pizza: 63,
+    panini: 63,
+    sokovinka: 40,
+    nonstop: 40,
+    zapekanka: 56,
+    slayka: 36,
+    cola: 40,
+  };
+
+  const total = filteredItems.reduce(
+    (sum, item) => sum + (prices[item] || 0),
+    0
+  );
+
+  // Создаем объект заказа
+  const order = {
+    name,
+    items: filteredItems,
+    total,
+  };
+
   const orders = readDB();
-  orders.push({ name, items: filteredItems });
+  orders.push(order);
   writeDB(orders);
 
   res.status(201).send("Заказ добавлен");
