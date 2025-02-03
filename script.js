@@ -9,13 +9,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const prices = {
     burger: 63,
-    pizza: 63,
+    pizza: 66,
     panini: 63,
-    sokovinka: 40,
-    nonstop: 40,
-    zapekanka: 56,
-    slayka: 36,
+    sokovinka: 35,
+    nonstop: 62,
+    zapekanka: 60,
+    sloyka: 38,
     cola: 40,
+    pitbull: 47,
+    sok: 40,
   };
 
   // Показати форму студента
