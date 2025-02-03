@@ -1,1 +1,25 @@
-[]
+[
+  {
+    "name": "Настя",
+    "items": [
+      "zapekanka",
+      "cola"
+    ],
+    "total": 100
+  },
+  {
+    "name": "Nikita Puzhalov",
+    "items": [
+      "nonstop"
+    ],
+    "total": 62
+  },
+  {
+    "name": "Настя",
+    "items": [
+      "zapekanka",
+      "cola"
+    ],
+    "total": 100
+  }
+]
